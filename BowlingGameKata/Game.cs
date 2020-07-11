@@ -2,7 +2,7 @@ namespace BowlingGameKata
 {
     public class Game
     {
-        public void Roll(int i)
+        public void Roll(int pins)
         {
         }
 
