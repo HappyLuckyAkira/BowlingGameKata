@@ -1,6 +1,6 @@
 using NUnit.Framework;
 // TODO
-//　通常のスコア計算ができること(No mark)
+//　通常のスコア計算ができること(No mark) ok
 // ひとつのスペアの計算ができること
 // ひとつのストライクの計算ができること
 // 全部ストライクで、300点になること
@@ -9,30 +9,31 @@ namespace BowlingGameKata
 {
     public class GameTests
     {
+        private  Game _game;
         [SetUp]
         public void Setup()
         {
+            _game = new Game();
         }
 
         [Test]
         public void 全てガターだったら0点()
         {
-            var game = new Game();
-            for (int i = 0; i < 20; i++)
-            {
-                game.Roll(0);
-            }
-            Assert.AreEqual(0,game.Score());
+            RollMany(20,0);
+            Assert.AreEqual(0,_game.Score());
         }
         [Test]
         public void 全1だったら20点()
         {
-            var game = new Game();
-            for (int i = 0; i < 20; i++)
+            RollMany(20,1);
+            Assert.AreEqual(20,_game.Score());
+        }
+        private void RollMany(int rolls,int pins)
+        {
+            for (int i = 0; i < rolls; i++)
             {
-                game.Roll(1);
+                _game.Roll(pins);
             }
-            Assert.AreEqual(20,game.Score());
         }
     }
 }
