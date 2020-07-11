@@ -16,7 +16,7 @@ namespace BowlingGameKata
             int roll = 0;
             for (int frame = 0; frame < 10; frame++)
             {
-                if (_rolls[roll] + _rolls[roll + 1] == 10) //Spare
+                if (IsSpare(roll)) //Spare
                 {
                     score += 10 + _rolls[roll + 2];
                     roll += 2;
@@ -31,6 +31,11 @@ namespace BowlingGameKata
             }
 
             return score;
+        }
+
+        private bool IsSpare(int roll)
+        {
+            return _rolls[roll] + _rolls[roll + 1] == 10;
         }
     }
 }
