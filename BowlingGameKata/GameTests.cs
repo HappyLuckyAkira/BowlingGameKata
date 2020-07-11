@@ -15,9 +15,26 @@ namespace BowlingGameKata
         }
 
         [Test]
-        public void Test1()
+        public void 全てガターだったら0点()
         {
-            Assert.Pass();
+            var game = new Game();
+            for (int i = 0; i < 20; i++)
+            {
+                game.Roll(0);
+            }
+            Assert.AreEqual(0,game.Score());
+        }
+    }
+
+    public class Game
+    {
+        public void Roll(int i)
+        {
+        }
+
+        public int Score()
+        {
+            return 0;
         }
     }
 }
