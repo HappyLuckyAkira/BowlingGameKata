@@ -25,16 +25,4 @@ namespace BowlingGameKata
             Assert.AreEqual(0,game.Score());
         }
     }
-
-    public class Game
-    {
-        public void Roll(int i)
-        {
-        }
-
-        public int Score()
-        {
-            return 0;
-        }
-    }
 }
