@@ -28,6 +28,16 @@ namespace BowlingGameKata
             RollMany(20,1);
             Assert.AreEqual(20,_game.Score());
         }
+
+        [Test]
+        public void ひとつのスペアが正しく計算されること()
+        {
+            _game.Roll(5);
+            _game.Roll(5); //Spare
+            _game.Roll(3);
+            RollMany(17, 0);
+            Assert.AreEqual(16, _game.Score());
+        }
         private void RollMany(int rolls,int pins)
         {
             for (int i = 0; i < rolls; i++)
